@@ -19,11 +19,13 @@ const readJsonFile = () => {
   }
 };
 
-app.get('/api/city/all.json', (req, res) => {
+app.get('/api/city/all', (req, res) => {
+  // 启用 CORS
+  res.header('Access-Control-Allow-Origin', '*');
   const jsonData = readJsonFile();
   res.json(jsonData);
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port http://127.0.0.1:${port}`)
+  console.log(`Example app listening on port http://127.0.0.1:${port}/api/city/all`)
 })
